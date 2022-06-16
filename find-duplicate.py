@@ -1,13 +1,18 @@
 class Solution:
     def findDuplicates(self, nums):
-        dup_check=[]
-        dup=[]
+        new = []
+        count = {}
         for i in nums:
-            if i in dup_check:
-                dup.append(i)
+            if i in count:
+                count[i] += 1
             else:
-                dup_check.append(i)
-        return dup
+                count[i] = 1
+        for k,v in count.items():
+            if v > 1:
+                new.append(k)
+            else:
+                pass
+        return new
 
 a=[4,3,2,7,8,2,3,1]
 r=Solution()
